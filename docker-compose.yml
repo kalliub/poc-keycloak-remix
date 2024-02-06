@@ -34,6 +34,8 @@ services:
       - "8080:8080"
     networks:
       - auth-network
+    volumes:
+      - ./keycloak/themes/custom-theme:/opt/bitnami/keycloak/themes/custom-theme
 
   pgadmin:
     hostname: pgadmin4
