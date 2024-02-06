@@ -1,0 +1,50 @@
+:root {
+  --primary-100: #E7EAFD;
+  --primary-200: #D0D4FB;
+  --primary-500: #273AE9;
+  --primary-700: #1120B0;
+  --primary-900: #0D1880;
+
+  --gray-100: #E9E9EC;
+  --gray-200: #B9B8C7;
+  --gray-500: #71708F;
+  --gray-700: #393847;
+  --gray-900: #01000F;
+
+  --red-200: #FBDDDB;
+  --red-500: #C23F36;
+  --red-900: #6B150F;
+
+  --green-200: #DBFBE6;
+  --green-500: #36C268;
+  --green-900: #0F6B30;
+
+  --orange-200: #FBD9B6;
+  --orange-500: #F08519;
+  --orange-900: #794006;
+
+  --font-family: 'Inter', sans-serif;
+
+}
+
+.login-pf a:hover {
+  color: var(--primary-700);
+}
+
+.login-pf a {
+  color: var(--primary-700);
+}
+
+.login-pf-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--gray-900);
+  font-family: var(--font-family);
+}
+
+#kc-header {
+  display: none !important;
+}

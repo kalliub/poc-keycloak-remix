@@ -1,0 +1,50 @@
+/* Text Inputs */
+
+.custom-input {
+  border: 1px solid var(--gray-200);
+  border-radius: 4px;
+  cursor: inherit;
+  outline: "none";
+  transition: 200ms;
+  padding: 6px 12px;
+  height: 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.custom-input:hover {
+  border-color: var(--gray-500);
+}
+
+.custom-input:focus-visible {
+  outline: none;
+}
+
+.custom-label {
+  color: var(--gray-700);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+/* Password input group */
+
+.custom-password-input-group {
+  border: 1px solid var(--gray-200);
+  border-radius: 4px;
+  padding: 0;
+  width: 100%;
+  transition: 200ms;
+}
+.custom-password-input-group:hover {
+  border-color: var(--gray-500);
+}
+
+.custom-password-input {
+  border: none;
+}
+.custom-password-input:focus-visible {
+  outline: none;
+}

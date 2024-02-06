@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
 
+    
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
             <meta name="${meta?split('==')[0]}" content="${meta?split('==')[1]}"/>
@@ -45,6 +46,10 @@
             );
         </script>
     </#if>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.0/css/solid.css" />
 </head>
 
 <body class="${properties.kcBodyClass!}">
@@ -78,11 +83,13 @@
                         <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
                     </div>
                     <div class="col-md-10">
-                        <h1 id="kc-page-title"><#nested "header"></h1>
+                        <#--  <h1 id="kc-page-title"><#nested "header"></h1>  -->
+                        <h1 id="kc-page-title">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</h1>
                     </div>
                 </div>
             <#else>
-                <h1 id="kc-page-title"><#nested "header"></h1>
+                <#--  <h1 id="kc-page-title"><#nested "header"></h1>  -->
+                <h1 id="kc-page-title">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</h1>
             </#if>
         <#else>
             <#if displayRequiredFields>

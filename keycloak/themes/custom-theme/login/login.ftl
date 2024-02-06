@@ -27,8 +27,8 @@
                     <div class="${properties.kcFormGroupClass!}">
                         <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
 
-                        <div class="${properties.kcInputGroup!}">
-                            <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
+                        <div class="custom-password-input-group ${properties.kcInputGroup!}">
+                            <input tabindex="2" id="password" class="custom-password-input ${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
                                    aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                             />
                             <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg("showPassword")}"
@@ -71,7 +71,7 @@
 
                       <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
                           <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                          <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                          <input tabindex="4" class="custom-theme-submit-button" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                       </div>
                 </form>
             </#if>
@@ -100,7 +100,7 @@
                                     type="button" href="${p.loginUrl}">
                                 <#if p.iconClasses?has_content>
                                     <i class="${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
-                                    <span class="${properties.kcFormSocialAccountNameClass!} kc-social-icon-text">${p.displayName!}</span>
+                                    <span class="${properties.kcFormSocialAccountNameClass!}">${p.displayName!}</span>
                                 <#else>
                                     <span class="${properties.kcFormSocialAccountNameClass!}">${p.displayName!}</span>
                                 </#if>
