@@ -53,6 +53,10 @@
 </head>
 
 <body class="${properties.kcBodyClass!}">
+<#include "./resources/svg/pattern-background-lines.svg" >
+<#include "./resources/svg/login-background-cut.svg">
+<#include "./resources/svg/company-logo.svg">
+<#include "./resources/svg/company-logo-small.svg">
 <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
         <div id="kc-header-wrapper"
