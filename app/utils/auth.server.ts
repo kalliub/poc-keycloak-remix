@@ -6,12 +6,11 @@ import { User } from "~/types/User.interface";
 
 const keycloakStrategy = new KeycloakStrategy(
   {
-    // useSSL: true,
-    domain: "localhost:8080",
-    realm: "dev",
-    clientID: "remix-web",
-    clientSecret: "a7KO0CvpnGbPOidCBzuEVj1WHaUkaCkO",
-    callbackURL: "http://localhost:3000/auth/keycloak/callback",
+    domain: ENV.KC_BASE_URL,
+    realm: ENV.KC_REALM,
+    clientID: ENV.KC_CLIENT_ID,
+    clientSecret: ENV.KC_CLIENT_SECRET,
+    callbackURL: `${ENV.APP_URL}/auth/keycloak/callback`,
   },
   async ({accessToken, refreshToken, profile: {displayName, _json: { preferred_username}}}) => {
     return {

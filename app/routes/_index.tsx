@@ -14,6 +14,7 @@ export const loader: LoaderFunction = async ({request}) => {
   if (user) {
     return redirect("/dashboard")
   }
+  await authenticator.authenticate("keycloak", request);
   return null;
 }
 

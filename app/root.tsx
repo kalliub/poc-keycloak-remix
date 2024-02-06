@@ -1,5 +1,5 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,11 +7,21 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  json,
 } from "@remix-run/react";
+import { publicEnvVars } from "./config/env.server";
+import pick from "lodash.pick";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
+
+export const loader: LoaderFunction = () => {
+  // Loading public variables into the application frontend.
+  return json({
+    ENV: pick(ENV, publicEnvVars),
+  });
+};
 
 export default function App() {
   return (
