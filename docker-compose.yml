@@ -13,11 +13,11 @@ services:
       - '5432:5432'
     volumes:
       - postgres:/var/lib/postgresql/data
-      - ./keycloak/db/init-db-script.sql:/docker-entrypoint-initdb.d/init-db-script.sql
+      - ./keycloak/db/:/docker-entrypoint-initdb.d/
     networks:
       - auth-network
     healthcheck:
-      test: [ 'CMD-SHELL', 'pg_isready -U keycloak-db' ]
+      test: [ 'CMD-SHELL', 'sh', '-c', 'psql', '-U', 'pg-user', '-d', 'keycloak-db', '-c', 'SELECT schema_name FROM information_schema.schemata WHERE schema_name = ''keycloak-schema''' ]
       interval: 10s
       timeout: 5s
       retries: 5
