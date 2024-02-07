@@ -8,13 +8,19 @@ services:
       - POSTGRES_USER=pg-user
       - POSTGRES_PASSWORD=pg-pass
       - POSTGRES_DB=keycloak-db
+      - POSTGRES_DB_SCHEMA=keycloak-schema
     ports:
       - '5432:5432'
     volumes:
       - postgres:/var/lib/postgresql/data
-      - ./keycloak/db/init-db-script.sql:/docker-entrypoint-initdb.d/init-db-script.sql
+      - ./keycloak/db/:/docker-entrypoint-initdb.d/
     networks:
       - auth-network
+    healthcheck:
+      test: [ 'CMD-SHELL', 'sh', '-c', 'psql', '-U', 'pg-user', '-d', 'keycloak-db', '-c', 'SELECT schema_name FROM information_schema.schemata WHERE schema_name = ''keycloak-schema''' ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   keycloak:
     container_name: keycloak
@@ -29,7 +35,8 @@ services:
       - KEYCLOAK_DATABASE_NAME=keycloak-db
       - KEYCLOAK_DATABASE_SCHEMA=keycloak-schema
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     ports:
       - "8080:8080"
     networks:
