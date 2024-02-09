@@ -24,7 +24,7 @@ services:
 
   keycloak:
     container_name: keycloak
-    image: bitnami/keycloak:23.0.5
+    image: bitnami/keycloak:23.0.6
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
@@ -39,23 +39,9 @@ services:
         condition: service_healthy
     ports:
       - "8080:8080"
-    networks:
-      - auth-network
     volumes:
-      - ./keycloak/themes/custom-theme:/opt/bitnami/keycloak/themes/custom-theme
-
-  pgadmin:
-    hostname: pgadmin4
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "dev@dev.com"
-      PGADMIN_DEFAULT_PASSWORD: "dev@1234"
-    ports:
-      - "6001:80"
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
-    depends_on:
-      - postgres
+      - postgres:/var/lib/postgresql/data
+      - ./keycloak/themes/:/opt/bitnami/keycloak/themes/
     networks:
       - auth-network
 

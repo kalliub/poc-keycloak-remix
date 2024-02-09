@@ -1,5 +1,5 @@
 import { LoaderFunction } from "@remix-run/node";
-import { authenticator } from "~/utils/auth.server";
+import { authenticator } from "~/services/auth.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
   return authenticator.logout(request, {

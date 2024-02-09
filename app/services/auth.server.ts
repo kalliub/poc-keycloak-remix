@@ -6,6 +6,7 @@ import { User } from "~/types/User.interface";
 
 const keycloakStrategy = new KeycloakStrategy(
   {
+    useSSL: ENV.KC_USE_SSL === "true",
     domain: ENV.KC_BASE_URL,
     realm: ENV.KC_REALM,
     clientID: ENV.KC_CLIENT_ID,

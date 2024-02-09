@@ -1,0 +1,80 @@
+
+.login-pf body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  background: black;
+}
+
+.login-pf-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--gray-900);
+  font-family: var(--font-family);
+  padding: 0;
+}
+
+.image-background {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.image-background#bg-lines {
+  background-color: black;
+  scale: 1.4;
+}
+
+.image-background#bg-cut {
+  right: -30%;
+  bottom: 0;
+}
+
+.image-background#logo {
+  position: absolute;
+  width: 520px;
+  left: 15%;
+}
+
+.image-background#logo-small {
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+
+  .image-background#logo {
+    display: none;
+  }
+
+  .image-background#logo-small {
+    display: block;
+    width: 240px;
+    left: 38px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .image-background#bg-cut {
+    display: none;
+  }
+  
+  .image-background#logo-small {
+    display: none;
+  }
+
+  .image-background#bg-lines {
+    background-color: white;
+    opacity: 0.5;
+  }
+
+  .login-pf body {
+    background: white;
+  }
+}
