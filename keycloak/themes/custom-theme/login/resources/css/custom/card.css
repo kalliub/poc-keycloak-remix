@@ -31,7 +31,7 @@ h1#kc-page-title {
   font-style: normal;
   font-weight: 600;
   line-height: 36px; 
-  white-space: pre;
+  white-space: pre-line;
   color: var(--gray-500);
 }
 
