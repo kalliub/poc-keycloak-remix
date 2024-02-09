@@ -8,6 +8,7 @@ const schema = z.object({
   KC_CLIENT_ID: z.string().min(1),
   KC_BASE_URL: z.string().min(1),
   KC_CLIENT_SECRET: z.string().min(1),
+  KC_USE_SSL: z.enum(['true', 'false']).optional(),
 });
 
 type ENV = z.infer<typeof schema>;
