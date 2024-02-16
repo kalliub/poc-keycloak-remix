@@ -19,6 +19,7 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
+  ignorePatterns: ['node_modules/', 'dist/', 'build/', 'coverage/', 'public/', 'keycloak/'],
 
   // Base config
   extends: ["eslint:recommended"],
